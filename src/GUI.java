@@ -16,8 +16,8 @@ class GUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Create an array with rotor names for the JComboBoxes
-        String[] rotorNames = { "Rotor I", "Rotor II", "Rotor III" };
-        String[] reflectorNames = {"Reflector B"};
+        String[] rotorNames = { "Rotor I", "Rotor II", "Rotor III", "Rotor IV"}; // "Rotor V"
+        String[] reflectorNames = {"Reflector B", "Reflector C"};
 
         // Create panel
         JPanel panel = new JPanel();
@@ -73,7 +73,7 @@ class GUI extends JFrame {
                 int[] machineLanguage = translate.translateToMachine();
                 int[] machineOutput = new int[machineLanguage.length];
                 for (int i = 0; i < machineLanguage.length; i++) {
-                    machineOutput[i] = m.encrypt(machineLanguage[i]);
+                    machineOutput[i] = m.encryptOneLetter(machineLanguage[i]);
                 }
                 String humanLanguage = translate.translateToHuman(machineOutput);
                 outputArea.setText(humanLanguage);
@@ -105,7 +105,6 @@ class GUI extends JFrame {
                 for (int i = 0; i < Main.allRotorsLeft.length; i++){
                     if(Main.allRotorsLeft[i].id == userChoice){
                         selectedRotor = Main.allRotorsLeft[i];
-                        System.out.println(selectedRotor.id);
                         break;
                     }
                 }
@@ -121,7 +120,6 @@ class GUI extends JFrame {
                 for (int i = 0; i < Main.allRotorsMiddle.length; i++){
                     if(Main.allRotorsMiddle[i].id == userChoice){
                         selectedRotor = Main.allRotorsMiddle[i];
-                        System.out.println(selectedRotor.id);
                         break;
                     }
                 }
@@ -137,7 +135,6 @@ class GUI extends JFrame {
                 for (int i = 0; i < Main.allRotorsRight.length; i++){
                     if(Main.allRotorsRight[i].id == userChoice){
                         selectedRotor = Main.allRotorsRight[i];
-                        System.out.println(selectedRotor.id);
                         break;
                     }
                 }
